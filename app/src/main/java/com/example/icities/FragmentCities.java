@@ -38,9 +38,7 @@ public class FragmentCities extends Fragment {
         cityName = v.findViewById(R.id.tvCitiName);
         mAuth = FirebaseAuth.getInstance();
 
-        serviceProvider = UserData.createRetrofit();
-
-        cities = UserData.getCities(mAuth.getUid());
+        cities = UserDataFromRest.getCities(mAuth.getUid());
 
         recyclerView = v.findViewById(R.id.recyclerView);
 

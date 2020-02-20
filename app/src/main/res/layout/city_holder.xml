@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    app:cardCornerRadius="5dp"
-    android:elevation="5dp"
     android:background="@color/colorPrimary"
-    android:backgroundTint="@color/colorPrimary">
+    android:backgroundTint="@color/colorPrimary"
+    android:elevation="5dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="5dp">
 
-    <TextView
-        android:id="@+id/tvCitiName"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"/>
+        android:layout_height="100dp">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ciudad"
+            android:scaleType="centerCrop"
+            />
+
+        <TextView
+            android:id="@+id/tvCitiName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textSize="30dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/holo_green_dark"/>
+
+        <TextView
+            android:id="@+id/tvCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pais"
+            android:textAlignment="textEnd"
+            android:textSize="30dp"
+            android:layout_below="@id/tvCitiName"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/holo_green_dark"/>
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

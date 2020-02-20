@@ -15,11 +15,11 @@ import java.util.concurrent.ExecutionException;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class UserData {
+public class UserDataFromRest {
 
     private final static String API_REST_BASE_URL = "http://clembell.duckdns.org:8084/icities/resources/icities/";
 
-    public static ServiceProvider createRetrofit(){
+    private static ServiceProvider createRetrofit(){
         Retrofit retrofit = new Retrofit.Builder().baseUrl(API_REST_BASE_URL)
                 .addConverterFactory(TikXmlConverterFactory.create())
                 .build();
@@ -83,8 +83,7 @@ public class UserData {
         return city;
     }
 
-    public static List<Place> getPlaces(int cityId)
-    {
+    public static List<Place> getPlaces(int cityId){
         ServiceProvider serviceProvider = createRetrofit();
 
         AsyncTask getPlacesAsyncTask = new AsyncTask() {
@@ -110,5 +109,61 @@ public class UserData {
 
 
         return placeCollectionResponse.getPlaces();
+    }
+
+    public static Place getPlace(int id){
+        ServiceProvider serviceProvider = createRetrofit();
+
+        AsyncTask getPlaceAsyncTask = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                Response<Place> placeResponse = null;
+                try {
+                    placeResponse = serviceProvider.getPlace(id).execute();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return placeResponse.body();
+            }
+        };
+
+        Place place = null;
+        try {
+            getPlaceAsyncTask.execute();
+            place = (Place) getPlaceAsyncTask.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+
+
+        return place;
+    }
+
+    public static Userdata getUser(String uid){
+        ServiceProvider serviceProvider = createRetrofit();
+
+        AsyncTask getUserAsyncTask = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                Response<Userdata> userResponse = null;
+                try {
+                    userResponse = serviceProvider.getUser(uid).execute();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                return userResponse.body();
+            }
+        };
+
+        Userdata userdata = null;
+        try {
+            getUserAsyncTask.execute();
+            userdata = (Userdata) getUserAsyncTask.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+
+
+        return userdata;
     }
 }

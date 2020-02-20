@@ -5,20 +5,24 @@
  */
 package com.example.icities.Clases;
 
+import com.tickaroo.tikxml.annotation.PropertyElement;
+import com.tickaroo.tikxml.annotation.Xml;
+
 import java.io.Serializable;
 
+@Xml(name = "place")
 public class Place implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    @PropertyElement(name = "id")
     private Integer id;
-
+    @PropertyElement(name = "placename")
     private String placename;
-
+    @PropertyElement(name = "adress")
     private String adress;
-
+    @PropertyElement(name = "placedescription")
     private String placedescription;
-
+    @PropertyElement(name = "idcity")
     private City idcity;
 
     public Place() {

@@ -1,6 +1,6 @@
 package com.example.icities.Clases;
 
-import com.example.icities.UserData;
+import com.example.icities.UserDataFromRest;
 import com.tickaroo.tikxml.annotation.PropertyElement;
 import com.tickaroo.tikxml.annotation.Xml;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Xml(name = "city")
-public class City extends UserData implements Serializable {
+public class City extends UserDataFromRest implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @PropertyElement(name = "cityname")
