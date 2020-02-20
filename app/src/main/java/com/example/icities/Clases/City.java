@@ -1,5 +1,8 @@
 package com.example.icities.Clases;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.example.icities.UserData;
 import com.tickaroo.tikxml.annotation.PropertyElement;
 import com.tickaroo.tikxml.annotation.Xml;
@@ -9,7 +12,7 @@ import java.util.List;
 
 
 @Xml(name = "city")
-public class City extends UserData implements Serializable {
+public class City extends UserData implements Serializable, Parcelable {
 
     private static final long serialVersionUID = 1L;
     @PropertyElement(name = "cityname")
@@ -122,4 +125,37 @@ public class City extends UserData implements Serializable {
         return "clases.City[ id=" + id + " ]";
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.cityname);
+        dest.writeString(this.countryname);
+        dest.writeString(this.creatoruid);
+        dest.writeValue(this.id);
+        dest.writeString(this.regionname);
+    }
+
+    protected City(Parcel in) {
+        this.cityname = in.readString();
+        this.countryname = in.readString();
+        this.creatoruid = in.readString();
+        this.id = (Integer) in.readValue(Integer.class.getClassLoader());
+        this.regionname = in.readString();
+    }
+
+    public static final Parcelable.Creator<City> CREATOR = new Parcelable.Creator<City>() {
+        @Override
+        public City createFromParcel(Parcel source) {
+            return new City(source);
+        }
+
+        @Override
+        public City[] newArray(int size) {
+            return new City[size];
+        }
+    };
 }

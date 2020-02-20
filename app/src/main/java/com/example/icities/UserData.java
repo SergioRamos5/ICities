@@ -19,7 +19,7 @@ public class UserData {
 
     private final static String API_REST_BASE_URL = "http://clembell.duckdns.org:8084/icities/resources/icities/";
 
-    public static ServiceProvider createRetrofit(){
+    private static ServiceProvider createRetrofit(){
         Retrofit retrofit = new Retrofit.Builder().baseUrl(API_REST_BASE_URL)
                 .addConverterFactory(TikXmlConverterFactory.create())
                 .build();
