@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "176826762073",
+    "firebase_url": "https://icities-eda4d.firebaseio.com",
+    "project_id": "icities-eda4d",
+    "storage_bucket": "icities-eda4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176826762073:android:f94b133c8900336cdb8248",
+        "android_client_info": {
+          "package_name": "com.example.icities"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "176826762073-1b2pb769b2o0pk7ri2mu666a5sekfuqn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.icities",
+            "certificate_hash": "2345c49278a9619153c0e9c91b5f83709257e411"
+          }
+        },
+        {
+          "client_id": "176826762073-dj28i9r47ihtn78bnkarqfsc6mge17uh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDh60hMacLLov49ySZxpl1cWmgkK2S0AmM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "176826762073-dj28i9r47ihtn78bnkarqfsc6mge17uh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

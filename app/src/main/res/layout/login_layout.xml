@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/tv_ICities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ICities"
+            android:textAlignment="center"
+            android:textSize="80dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/editTextContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_ICities"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="User">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="sergio@gmail.com"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/text_input_layout_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_input_layout_user"
+            android:hint="Password">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="123456"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextContainer"
+        android:gravity="center"
+        android:layout_marginTop="20dp">
+        <Button
+            android:id="@+id/btLogIn"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:hint="Log In"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_input_layout_pass"/>
+        <Button
+            android:id="@+id/btSignUp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:hint="Sign Up"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/btLogIn"
+            android:layout_below="@id/text_input_layout_pass"/>
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:scaleType="centerCrop"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/ciudad" />
+
+</RelativeLayout>
