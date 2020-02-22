@@ -35,4 +35,5 @@ public class FragmentPlaces extends Fragment {
         return v;
     }
 
+
 }

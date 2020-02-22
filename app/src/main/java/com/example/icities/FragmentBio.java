@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.icities.Clases.UserDataFromRest;
+import com.example.icities.Clases.Userdata;
 import com.google.firebase.auth.FirebaseAuth;
 
 

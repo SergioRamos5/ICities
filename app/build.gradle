@@ -43,4 +43,7 @@ dependencies {
     implementation 'com.tickaroo.tikxml:annotation:0.8.13'
     implementation 'com.tickaroo.tikxml:core:0.8.13'
     implementation 'com.tickaroo.tikxml:retrofit-converter:0.8.13'
+    implementation 'com.firebaseui:firebase-ui-firestore:6.1.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.google.firebase:firebase-storage:19.1.0'
 }

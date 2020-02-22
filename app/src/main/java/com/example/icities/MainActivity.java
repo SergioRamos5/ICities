@@ -1,6 +1,8 @@
 package com.example.icities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Menu;
 
 
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         FT.replace(R.id.fragment_container, fragment);
         FT.commit();
     }
+
+
 
 }
 

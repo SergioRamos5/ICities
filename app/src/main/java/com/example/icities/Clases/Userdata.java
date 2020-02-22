@@ -1,12 +1,18 @@
-package com.example.icities;
+package com.example.icities.Clases;
 
+import android.os.AsyncTask;
+
+import com.example.icities.JsonResponse;
 import com.tickaroo.tikxml.annotation.PropertyElement;
 import com.tickaroo.tikxml.annotation.Xml;
 
 import java.io.Serializable;
+import java.util.concurrent.ExecutionException;
+
+import retrofit2.Call;
 
 @Xml(name = "userdata")
-public class Userdata implements Serializable
+public class Userdata extends UserDataFromRest implements Serializable
 {
 
     private static final long serialVersionUID = 1L;
@@ -76,6 +82,59 @@ public class Userdata implements Serializable
         this.userphone = userphone;
     }
 
+    public boolean updateDB()
+    {
+        Call<JsonResponse> jsonResponseCall = createRetrofit().editUser(this);
+        AsyncTask updateUserAsyncTask = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                try {
+                    jsonResponseCall.execute();
+                } catch (Exception e) {
+                    return false;
+                }
+                return true;
+            }
+        };
+
+        boolean updateUserResponse = false;
+        try {
+            updateUserAsyncTask.execute();
+            updateUserResponse = (boolean) updateUserAsyncTask.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+
+
+        return updateUserResponse;
+    }
+
+    public boolean deleteFromDB(){
+        Call<JsonResponse> jsonResponseCall = createRetrofit().deleteUser(this.uid);
+        AsyncTask deleteUserAsyncTask = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                try {
+                    jsonResponseCall.execute();
+                } catch (Exception e) {
+                    return false;
+                }
+                return true;
+            }
+        };
+
+        boolean deleteUserResponse = false;
+        try {
+            deleteUserAsyncTask.execute();
+            deleteUserResponse = (boolean) deleteUserAsyncTask.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+
+
+        return deleteUserResponse;
+    }
+
     @Override
     public int hashCode()
     {
@@ -101,5 +160,5 @@ public class Userdata implements Serializable
     {
         return "clases.Userdata[ uid=" + uid + " ]";
     }
-    
+
 }

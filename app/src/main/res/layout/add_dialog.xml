@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="60dp">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_cityNameDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="City Name"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputName">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_countryDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Country"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputRegion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputCountry">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_regionDialog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Region"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageDialog"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="50dp"
+        android:src="@drawable/ciudad"
+        android:scaleType="centerCrop"
+        android:layout_below="@id/inputRegion"/>
+
+</RelativeLayout>

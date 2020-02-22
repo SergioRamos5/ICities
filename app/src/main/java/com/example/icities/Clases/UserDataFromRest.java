@@ -1,11 +1,8 @@
-package com.example.icities;
+package com.example.icities.Clases;
 
 import android.os.AsyncTask;
 
-import com.example.icities.Clases.City;
-import com.example.icities.Clases.CityCollection;
-import com.example.icities.Clases.Place;
-import com.example.icities.Clases.PlaceCollection;
+import com.example.icities.ServiceProvider;
 import com.tickaroo.tikxml.retrofit.TikXmlConverterFactory;
 
 import java.io.IOException;
@@ -19,7 +16,7 @@ public class UserDataFromRest {
 
     private final static String API_REST_BASE_URL = "http://clembell.duckdns.org:8084/icities/resources/icities/";
 
-    private static ServiceProvider createRetrofit(){
+    static ServiceProvider createRetrofit(){
         Retrofit retrofit = new Retrofit.Builder().baseUrl(API_REST_BASE_URL)
                 .addConverterFactory(TikXmlConverterFactory.create())
                 .build();
@@ -166,4 +163,57 @@ public class UserDataFromRest {
 
         return userdata;
     }
+
+    public static boolean insertCity(City city){
+        ServiceProvider serviceProvider = createRetrofit();
+
+        AsyncTask insertCityAsyncTask = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                try {
+                    serviceProvider.insertCity(city).execute();
+                } catch (Exception e) {
+                    return false;
+                }
+                return true;
+            }
+        };
+
+        boolean cityInserted = false;
+        try {
+            insertCityAsyncTask.execute();
+            cityInserted = (boolean) insertCityAsyncTask.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        return cityInserted;
+    }
+
+    public static boolean insertUser(Userdata userdata){
+        ServiceProvider serviceProvider = createRetrofit();
+
+        AsyncTask insertUserAsyncTask = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                try {
+                    serviceProvider.insertUser(userdata).execute();
+                } catch (Exception e) {
+                    return false;
+                }
+                return true;
+            }
+        };
+
+        boolean userInserted = false;
+        try {
+            insertUserAsyncTask.execute();
+            userInserted = (boolean) insertUserAsyncTask.get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        return userInserted;
+    }
+
 }
